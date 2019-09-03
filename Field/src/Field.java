@@ -65,16 +65,8 @@ public class Field {
         } else this.rob.x = data[0].length - 1;
         this.data[this.rob.y][old_x] = this.empty;
         this.data[this.rob.y][this.rob.x] = this.robot;
-        if (this.trace_on) {
-            for (int i = old_x; i < this.rob.x; i++) {
-                data[this.rob.y][i] = this.trace;
-            }
-        }
-        else
-        {
-            for (int i = old_x; i < this.rob.x; i++) {
-                data[this.rob.y][i] = this.empty;
-            }
+        for (int i = old_x; i < this.rob.x; i++) {
+            data[this.rob.y][i] = this.trace_on ? this.trace : this.empty;
         }
     }
 
@@ -89,16 +81,8 @@ public class Field {
         } else this.rob.x = 0;
         this.data[this.rob.y][old_x] = this.empty;
         this.data[this.rob.y][this.rob.x] = this.robot;
-        if (this.trace_on) {
-            for (int i = old_x; i > this.rob.x; i--) {
-                data[this.rob.y][i] = this.trace;
-            }
-        }
-        else
-        {
-            for (int i = old_x; i > this.rob.x; i--) {
-                data[this.rob.y][i] = this.empty;
-            }
+        for (int i = old_x; i > this.rob.x; i--) {
+            data[this.rob.y][i] = this.trace_on ? this.trace : this.empty;
         }
     }
 
@@ -113,17 +97,10 @@ public class Field {
         } else this.rob.y = 0;
         this.data[this.rob.y][this.rob.x] = this.robot;
         this.data[old_y][this.rob.x] = this.empty;
-        if (this.trace_on) {
-            for (int i = old_y; i > this.rob.y; i--) {
-                data[i][this.rob.x] = this.trace;
-            }
+        for (int i = old_y; i > this.rob.y; i--) {
+            data[i][this.rob.x] = this.trace_on ? this.trace : this.empty;
         }
-        else
-        {
-            for (int i = old_y; i > this.rob.y; i--) {
-                data[i][this.rob.x] = this.empty;
-            }
-        }
+
     }
 
     public void moveDown(int distance) {
@@ -137,17 +114,10 @@ public class Field {
         } else this.rob.y = data.length - 1;
         this.data[this.rob.y][this.rob.x] = this.robot;
         this.data[old_y][this.rob.x] = this.empty;
-        if (this.trace_on) {
-            for (int i = old_y; i < this.rob.y; i++) {
-                data[i][this.rob.x] = this.trace;
-            }
+        for (int i = old_y; i < this.rob.y; i++) {
+            data[i][this.rob.x] = this.trace_on ? this.trace : this.empty;
         }
-        else
-        {
-            for (int i = old_y; i < this.rob.y; i++) {
-                data[i][this.rob.x] = this.empty;
-            }
-        }
+
     }
 
     public boolean execute()
