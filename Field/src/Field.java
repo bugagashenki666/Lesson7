@@ -63,7 +63,6 @@ public class Field {
         if (this.rob.x + distance < data[0].length) {
             this.rob.x += distance;
         } else this.rob.x = data[0].length - 1;
-        this.data[this.rob.y][old_x] = this.empty;
         this.data[this.rob.y][this.rob.x] = this.robot;
         for (int i = old_x; i < this.rob.x; i++) {
             data[this.rob.y][i] = this.trace_on ? this.trace : this.empty;
@@ -79,7 +78,6 @@ public class Field {
         if (this.rob.x - distance >= 0) {
             this.rob.x -= distance;
         } else this.rob.x = 0;
-        this.data[this.rob.y][old_x] = this.empty;
         this.data[this.rob.y][this.rob.x] = this.robot;
         for (int i = old_x; i > this.rob.x; i--) {
             data[this.rob.y][i] = this.trace_on ? this.trace : this.empty;
@@ -96,7 +94,6 @@ public class Field {
             this.rob.y -= distance;
         } else this.rob.y = 0;
         this.data[this.rob.y][this.rob.x] = this.robot;
-        this.data[old_y][this.rob.x] = this.empty;
         for (int i = old_y; i > this.rob.y; i--) {
             data[i][this.rob.x] = this.trace_on ? this.trace : this.empty;
         }
@@ -113,7 +110,6 @@ public class Field {
             this.rob.y += distance;
         } else this.rob.y = data.length - 1;
         this.data[this.rob.y][this.rob.x] = this.robot;
-        this.data[old_y][this.rob.x] = this.empty;
         for (int i = old_y; i < this.rob.y; i++) {
             data[i][this.rob.x] = this.trace_on ? this.trace : this.empty;
         }
